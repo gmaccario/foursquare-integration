@@ -1,0 +1,15 @@
+{
+	"autoload": {
+		"psr-4": {
+			"FSI\\Controller\\Classes\\": "classes/controllers/",
+			"FSI\\General\\Classes\\": "classes/general/",
+			"FSI\\Setup\\Classes\\": "classes/setup/"
+		}
+	},
+    "require-dev": {
+        "phpunit/phpunit": "^7"
+    },
+	"require": {
+		"hownowstephen/php-foursquare": "1.2.*"
+	}
+}
