@@ -16,7 +16,7 @@ if(!interface_exists('iFoursquareWrapper'))
     interface iFoursquareWrapper
     {
         public function setAction(string $action) : void;
-        public function setWhat(string $action) : void;
+        public function setWhat(?string $action) : void;
         public function setLL(?string $ll) : void;
         public function setIntent(?string $intent) : void;
         public function setName(?string $name) : void;
@@ -27,7 +27,7 @@ if(!interface_exists('iFoursquareWrapper'))
         public function setCategoryId(?string $category_id) : void;
         
         public function getAction() : string;
-        public function getWhat() : string;
+        public function getWhat() : ?string;
         public function getLL() : ?string;
         public function getIntent() : ?string;
         public function getName() : ?string;
@@ -102,7 +102,7 @@ if(!class_exists('FoursquareWrapper'))
 		 * @author G.Maccario <g_maccario@hotmail.com>
 		 * @return void
 		 */
-		public function setWhat(string $what) : void
+		public function setWhat(?string $what) : void
 		{
 		    $this->what = $what;
 		}
@@ -229,7 +229,7 @@ if(!class_exists('FoursquareWrapper'))
 		 * @author G.Maccario <g_maccario@hotmail.com>
 		 * @return string
 		 */
-		public function getWhat() : string
+		public function getWhat() : ?string
 		{
 		    return $this->what;
 		}
