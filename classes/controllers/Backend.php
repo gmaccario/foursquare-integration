@@ -83,6 +83,8 @@ if(!class_exists('\FSI\Controllers\Classes\Backend'))
 				update_option( FOURSQUARE_INTEGRATION_OPT_SECRET_KEY, $this->params['value_secret_key'] );
 			}
 			
+			$this->params['available_shortcodes'] = $this->common->getConfig()['features']['frontend']['shortcodes'];
+			
 			/*
 			 * INCLUDE FORM
 			 */

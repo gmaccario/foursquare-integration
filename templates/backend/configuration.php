@@ -14,16 +14,27 @@
 		<?php endif; ?>
 		
 		<div class="shortcodes">
-			<h2 class=""><?php echo __( 'AVAILABLE SHORTCODES' ); ?></h2>
-
-			<div class="shortcodes">
-				<ul>
-					<li>
-						<span>[default_template_shortcode]</span>: 
-						<span><?php echo __( 'Default widget', FOURSQUARE_INTEGRATION_L10N ); ?>.</span>
-					</li>
-				</ul>
-			</div>
+			<table>
+                <thead>
+                    <tr>
+                        <th colspan="2"><h2 class=""><?php echo _e( "AVAILABLE SHORTCODES", FOURSQUARE_INTEGRATION_L10N ); ?></h2></th>
+                    </tr>
+                    <tr>
+                        <th><?php echo _e( "Shortcode", FOURSQUARE_INTEGRATION_L10N ); ?></th>
+                        <th><?php echo _e( "Frontend Method", FOURSQUARE_INTEGRATION_L10N ); ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<?php foreach($available_shortcodes as $available_shortcode): ?>
+                		<tr>
+                			<?php foreach($available_shortcode as $shortcode => $method): ?>
+                            	<td><?php echo $shortcode;?></td>
+                            	<td><?php echo $method;?></td>
+                            <?php endforeach; ?>
+                        </tr>
+					<?php endforeach; ?>
+                </tbody>
+            </table>
 		</div>
 
 		<hr />
