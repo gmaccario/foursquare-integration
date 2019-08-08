@@ -60,7 +60,6 @@ if(!class_exists('\FSI\Controllers\Classes\Backend'))
 			     * GET FRESH VALUES FROM DB
 			     * *********************************************
 			     */
-			    $this->params['value_debug'] = get_option( FOURSQUARE_INTEGRATION_OPT_DEBUG );
 			    $this->params['value_client_id'] = get_option( FOURSQUARE_INTEGRATION_OPT_CLIENT_ID );
 			    $this->params['value_secret_key'] = get_option( FOURSQUARE_INTEGRATION_OPT_SECRET_KEY );
 			    
@@ -70,7 +69,6 @@ if(!class_exists('\FSI\Controllers\Classes\Backend'))
 				 * GET VALUES FROM POST
 				 * *********************************************
 				 */
-				$this->params['value_debug'] = filter_input( INPUT_POST, FOURSQUARE_INTEGRATION_OPT_DEBUG, FILTER_SANITIZE_NUMBER_INT );
 				$this->params['value_client_id'] = filter_input( INPUT_POST, FOURSQUARE_INTEGRATION_OPT_CLIENT_ID, FILTER_SANITIZE_STRING );
 				$this->params['value_secret_key'] = filter_input( INPUT_POST, FOURSQUARE_INTEGRATION_OPT_SECRET_KEY, FILTER_SANITIZE_STRING );
 				
@@ -78,7 +76,6 @@ if(!class_exists('\FSI\Controllers\Classes\Backend'))
 				 * UPDATE NEW VALUES
 				 * *********************************************
 				 */
-				update_option( FOURSQUARE_INTEGRATION_OPT_DEBUG, $this->params['value_debug'] );
 				update_option( FOURSQUARE_INTEGRATION_OPT_CLIENT_ID, $this->params['value_client_id'] );
 				update_option( FOURSQUARE_INTEGRATION_OPT_SECRET_KEY, $this->params['value_secret_key'] );
 			}
