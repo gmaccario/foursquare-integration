@@ -31,6 +31,19 @@
 		<form name="form" class="form" method="post" action=""> <?php /* WARNING: using options.php in action attribute causes a problem with passing values parameters */ ?>
 			<?php settings_fields( FOURSQUARE_INTEGRATION_OPT_SETTINGS_FIELDS ); ?>
 			
+			<h4><?php echo __( 'Foursquare API keys', FOURSQUARE_INTEGRATION_L10N ); ?></h4>
+			<p>
+    			<label for="client_id" class="text"><?php echo __( 'Client ID', 'fsi' ); ?></label>
+    			
+    			<input type="text" id="client_id" class="client_id" value="<?php echo $value_client_id; ?>" name="<?php echo FOURSQUARE_INTEGRATION_OPT_CLIENT_ID; ?>">
+    		</p>
+    
+    		<p>
+    			<label for="client_secret" class="text"><?php echo __( 'Secret Key', 'fsi' ); ?></label>
+    			
+    			<input type="text" id="client_secret" class="client_secret" value="<?php echo $value_secret_key; ?>" name="<?php echo FOURSQUARE_INTEGRATION_OPT_SECRET_KEY; ?>">
+    		</p>
+			
 			<h4><?php echo __( 'Debug', FOURSQUARE_INTEGRATION_L10N ); ?></h4>
 			<p>
 				<input type="radio" class="debug" value="1" name="<?php echo FOURSQUARE_INTEGRATION_OPT_DEBUG; ?>" id="debug_enable" <?php echo ( $value_debug == 1 ) ? 'checked="checked"' : ''; ?>>

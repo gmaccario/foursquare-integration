@@ -3,7 +3,8 @@
 		"psr-4": {
 			"FSI\\Controller\\Classes\\": "classes/controllers/",
 			"FSI\\General\\Classes\\": "classes/general/",
-			"FSI\\Setup\\Classes\\": "classes/setup/"
+			"FSI\\Setup\\Classes\\": "classes/setup/",
+			"FSI\\Foursquare\\Classes\\": "classes/foursquare/"
 		}
 	},
     "require-dev": {

@@ -39,11 +39,11 @@ return [
 			'hooks'=> [],
 			'filters'=> [],
 			'shortcodes'=> [
-				['default_template_shortcode'=> 'default_template']
+				['foursquare_integration_shortcode'=> 'foursquare_integration']
 			],
-			'ajax'=> [ 'echo_foo' ],
+			'ajax'=> [ 'foursquare_results' ],
 			'routes'=> [],
-		    'additional_js' => [],
+		    'additional_js' => [ 'https://unpkg.com/axios/dist/axios.min.js', 'https://cdn.jsdelivr.net/npm/vue/dist/vue.js' ],
 		    'additional_css' => []
 		]
 	],

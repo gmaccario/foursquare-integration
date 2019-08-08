@@ -66,11 +66,22 @@ if(!class_exists('\FSI\Setup\Classes\Controller'))
                 $basename = explode('/', $additional);
                 
                 if($enqueueType == 'js')
-                {
-                    wp_enqueue_script( 'foursquare_integration-frontend-js-' . $basename[count($basename) - 1], $additional, array( 'jquery' ), null, true );
+                {                    
+                    wp_enqueue_script( 
+                        'foursquare_integration-frontend-js-' . $basename[count($basename) - 1], 
+                        $additional, 
+                        array( 
+                            'jquery'
+                        ), 
+                        null, 
+                        true 
+                    );
                 }
                 else {
-                    wp_enqueue_style( 'foursquare_integration-admin-frontend-css-' . $basename[count($basename) - 1], $additional);
+                    wp_enqueue_style( 
+                        'foursquare_integration-admin-frontend-css-' . $basename[count($basename) - 1], 
+                        $additional
+                    );
                 }
                 
             }, $additionals);

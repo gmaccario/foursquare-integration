@@ -18,6 +18,10 @@ define( 'FOURSQUARE_INTEGRATION_URL_ASSETS_IMAGES', FOURSQUARE_INTEGRATION_URL .
 define( 'FOURSQUARE_INTEGRATION_OPT_DEBUG', 'foursquare_integration_opt_debug' );
 define( 'FOURSQUARE_INTEGRATION_OPT_SETTINGS_FIELDS', 'foursquare_integration_opt_settings_fields' );
 
+/* PLUGIN API OPTIONS */
+define( 'FOURSQUARE_INTEGRATION_OPT_CLIENT_ID', 'foursquare_integration_opt_client_id' );
+define( 'FOURSQUARE_INTEGRATION_OPT_SECRET_KEY', 'foursquare_integration_opt_secret_key' );
+
 /* PLUGIN STRINGS */
 define( 'FOURSQUARE_INTEGRATION_L10N', 'foursquare_integration_l10n' );
 define( 'FOURSQUARE_INTEGRATION_BACKEND_DEPENDENCIES_MESSAGE', '' );

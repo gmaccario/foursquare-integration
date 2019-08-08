@@ -44,9 +44,6 @@ if(!class_exists('\FSI\Setup\Classes\FrontendManager'))
 		 */
 		public function frontendEnqueue() : void
 		{
-			wp_enqueue_style( 'foursquare_integration-frontend-css', sprintf( '%s%s', FOURSQUARE_INTEGRATION_URL, '/assets/css/frontend.css' ), array(), FOURSQUARE_INTEGRATION_FRONTEND_CSS_VERSION );
-			wp_enqueue_script( 'foursquare_integration-frontend-js', sprintf( '%s%s', FOURSQUARE_INTEGRATION_URL, '/assets/js/frontend.js' ), array( 'jquery' ), FOURSQUARE_INTEGRATION_FRONTEND_JS_VERSION, true );
-			
 			/*
 			 * Add additional frontend css/js
 			 */
@@ -55,6 +52,12 @@ if(!class_exists('\FSI\Setup\Classes\FrontendManager'))
 			
 			$this->enqueueAdditionalStaticFiles($additional_js, 'js');
 			$this->enqueueAdditionalStaticFiles($additional_css, 'css');
+			
+			/* 
+			 * Add basic static files 
+			 */
+			wp_enqueue_style( 'foursquare_integration-frontend-css', sprintf( '%s%s', FOURSQUARE_INTEGRATION_URL, '/assets/css/frontend.css' ), array(), FOURSQUARE_INTEGRATION_FRONTEND_CSS_VERSION );
+			wp_enqueue_script( 'foursquare_integration-frontend-js', sprintf( '%s%s', FOURSQUARE_INTEGRATION_URL, '/assets/js/frontend.js' ), array( 'jquery' ), FOURSQUARE_INTEGRATION_FRONTEND_JS_VERSION, true );
 		}
 		
 		/**

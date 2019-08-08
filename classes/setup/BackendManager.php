@@ -64,9 +64,6 @@ if( !class_exists('\FSI\Setup\Classes\BackendManager'))
 		 */
 		public function backendEnqueue() : void
 		{		    
-			wp_enqueue_style('foursquare_integration-admin-css', sprintf( '%s%s', FOURSQUARE_INTEGRATION_URL, '/assets/css/backend.css' ), array(), FOURSQUARE_INTEGRATION_BACKEND_CSS_VERSION);
-			wp_enqueue_script('foursquare_integration-admin-js', sprintf( '%s%s', FOURSQUARE_INTEGRATION_URL, '/assets/js/backend.js' ), array( 'jquery' ), FOURSQUARE_INTEGRATION_BACKEND_JS_VERSION, true);
-			
 			/*
 			 * Add additional frontend css/js 
 			 */
@@ -75,6 +72,12 @@ if( !class_exists('\FSI\Setup\Classes\BackendManager'))
 			
 			$this->enqueueAdditionalStaticFiles($additional_js, 'js');
 			$this->enqueueAdditionalStaticFiles($additional_css, 'css');
+			
+			/* 
+			 * Add basic static files 
+			 */
+			wp_enqueue_style('foursquare_integration-admin-css', sprintf( '%s%s', FOURSQUARE_INTEGRATION_URL, '/assets/css/backend.css' ), array(), FOURSQUARE_INTEGRATION_BACKEND_CSS_VERSION);
+			wp_enqueue_script('foursquare_integration-admin-js', sprintf( '%s%s', FOURSQUARE_INTEGRATION_URL, '/assets/js/backend.js' ), array( 'jquery' ), FOURSQUARE_INTEGRATION_BACKEND_JS_VERSION, true);
 		}
 		
 		/**

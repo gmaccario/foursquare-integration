@@ -3,13 +3,20 @@
 namespace FSI\Controller\Classes;
 
 use FSI\General\Classes\Common;
+use FSI\Foursquare\Classes\FoursquareWrapper;
 
 if(!interface_exists('FSI\Controllers\Classes\iFrontend'))
 {
     interface iFrontend
     {
-        public function default_template() : ?string;
-        public function echo_foo() : void;
+        /* GENERAL SET */
+        public function setFoursquareWrapper(FoursquareWrapper $foursquareWrapper) : void;
+        
+        /* TEMPLATING */
+        public function foursquare_integration() : ?string;
+        
+        /* APIs */
+        public function foursquare_results() : void;
     }
 }
 
@@ -24,6 +31,8 @@ if(!class_exists('\FSI\Controllers\Classes\Frontend'))
      */
     class Frontend extends Controller implements iFrontend
 	{
+        protected $foursquareWrapper;
+        
 		/**
 		 * @name __construct
 		 *
@@ -38,11 +47,24 @@ if(!class_exists('\FSI\Controllers\Classes\Frontend'))
 		}
 		
 		/**
-		 * default_template
+		 * @name setFoursquareWrapper
+		 *
+		 * @param Common $common
+		 *
+		 * @author G.Maccario <g_maccario@hotmail.com>
+		 * @return
+		 */
+		public function setFoursquareWrapper(FoursquareWrapper $foursquareWrapper) : void
+		{
+		    $this->foursquareWrapper = $foursquareWrapper;
+		}
+		
+		/**
+		 * foursquare_integration
 		 *
 		 * @author G.Maccario <g_maccario@hotmail.com>
 		 * 
-		 * Placxe a return if the function is a shortcode function: https://codex.wordpress.org/Shortcode_API
+		 * Place a return if the function is a shortcode function: https://codex.wordpress.org/Shortcode_API
 		 * 
 		 * The return value of a shortcode handler function is inserted into the post content output in place of the shortcode macro. 
 		 * Remember to use return and not echo - anything that is echoed will be output to the browser, but it won't appear 
@@ -51,25 +73,25 @@ if(!class_exists('\FSI\Controllers\Classes\Frontend'))
 		 * @return ?string
 		 * 
 		 */
-		public function default_template() : ?string
+		public function foursquare_integration() : ?string
 		{
 			/* @note Use "return" if this is the result of a shortcode call */
-		    return $this->common->renderView($this, 'default_template', $this->params);
+		    return $this->common->renderView($this, 'foursquare_integration', $this->params);
 		}
 		
 		/**
-		 * echo_foo
+		 * foursquare_results
 		 *
 		 * @author G.Maccario <g_maccario@hotmail.com>
-		 * 
-		 * @return void 
+		 *
+		 * @return void
 		 *
 		 */
-		public function echo_foo() : void 
+		public function foursquare_results() : void
 		{
-			wp_send_json( array( 'results' => array( 'success' => 'Congratulations! It\'s working!' ) ));
-			
-			wp_die();
+		    echo $this->foursquareWrapper->executePost();
+		    
+		    wp_die();
 		}
 	}
 }
