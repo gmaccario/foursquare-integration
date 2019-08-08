@@ -130,20 +130,26 @@ const FSCurrentLocation = Vue.component('fs-current-location',{
 		  	
 			<div class="welcome">
 
-		  		<span v-show="!location_name">Loading...</span>
-		  	
-		  		<i class="fa fa-map-marker float-left" aria-hidden="true"></i>
-		  		
-		  		<div class="location" v-if="location_name">
-  					<span>You are in </span>
-  					<span>{{ location_name }}</span>
-  					<span> - </span>
-  					<span v-if="location.city">{{ location.city }}</span>
-  					<span v-if="location.city">, </span>
-  					<span>{{ location.country }}</span>
-  					<span> </span>
-  					<span>({{ location.cc }})</span>
-		  		</div>
+				<div class="col-xs-12 col-md-12" v-show="!location_name">
+					<span>Loading...</span>
+				</div>
+
+				<div class="col-xs-12 col-md-2">
+					<i class="fa fa-map-marker" aria-hidden="true"></i>
+				</div>
+				  
+				<div class="col-xs-12 col-md-10">
+					<div class="location" v-if="location_name">
+						<span>You are in </span>
+						<span>{{ location_name }}</span>
+						<span> - </span>
+						<span v-if="location.city">{{ location.city }}</span>
+						<span v-if="location.city">, </span>
+						<span>{{ location.country }}</span>
+						<span> </span>
+						<span>({{ location.cc }})</span>
+					</div>
+				</div>
 		  	</div>
 		  	
 		  	<div class="where-am-i">
@@ -221,12 +227,12 @@ const FSCategories = Vue.component('fs-categories',{
   			<p v-show="!categories.length">Loading...</p>
   			
 		  	<div class="row" v-for="category in categories">
-				<div class="col-4">
+				<div class="col-xs-12 col-md-4">
 					<a href="#" @click="getVenuesByCategory(category.id);">
 						<img :src="category.icon.prefix + '32' + category.icon.suffix" />
 					</a>
 				</div>
-				<div class="col-8">
+				<div class="col-xs-12 col-md-8 text-right">
 					<a href="#" @click="getVenuesByCategory(category.id);">
 						<span class="shortName" :class="(categoryId == category.id) ? 'current' : ''">
 							{{ category.shortName }}
@@ -299,7 +305,7 @@ const FSVenueDetails = Vue.component('fs-venue-details',{
 		  	
 				<div v-if="!venue.error">
 				  	<div class="row">
-            			<div class="col-4">
+            			<div class="col-xs-12 col-md-4">
 							<div class="venue best-photo">
 								<img class="icon" 
 									v-if="venue.bestPhoto" 
@@ -329,10 +335,10 @@ const FSVenueDetails = Vue.component('fs-venue-details',{
 							</div>
 						</div>
 
-						<div class="col-8">
+						<div class="col-xs-12 col-md-8">
 							<h5 class="text-right">
 								<a :href="venue.shortUrl" target="_blank">
-									<span>{{ venue.name }}</span>
+									<span><strong>{{ venue.name }}</strong></span>
 								</a>
 							</h5>
 							
@@ -371,7 +377,7 @@ const FSVenueDetails = Vue.component('fs-venue-details',{
 							</div>
 						</div>
 
-						<div class="col-sm-12">
+						<div class="col-xs-12 col-md-12">
 							<div class="tips text-left" v-if="venue.tips.count > 0">
 								<span>Tips: </span>
 								<span>{{ venue.tips.groups[0].items[0].text }}</span>
@@ -504,7 +510,7 @@ const FSVenuesNearYou = Vue.component('fs-venues-near-you',{
 			
 			<div class="row" v-for="(venue, index) in venues">
 				  
-				<div class="col-4">
+				<div class="col-xs-12 col-md-4">
 					<div class="category icon">
 						<img class="icon" 
 							v-if="venue.categories[0]" 
@@ -526,10 +532,10 @@ const FSVenuesNearYou = Vue.component('fs-venues-near-you',{
 					</div>
 				</div>
 
-				<div class="col-8 details">
+				<div class="col-xs-12 col-md-8 details">
 					<h4 class="text-right">
 						<a href="#" @click="getVenueById(venue.id);">
-							<span>{{ venue.name }}</span>
+							<span><strong>{{ venue.name }}</strong></span>
 						</a>
 					</h4>
 					
@@ -553,10 +559,8 @@ const FSVenuesNearYou = Vue.component('fs-venues-near-you',{
 					</div>
 				</div>
 				
-				<div class="col-12">
-					<div class="text-right">
-						<p class="nmb">{{ index + 1 }}</p>
-					</div>
+				<div class="col-xs-12 col-md-12">
+					<p class="text-right nmb">{{ index + 1 }}</p>
 				</div>
 			</div>
   		</div>`
@@ -624,64 +628,69 @@ const FSContent = Vue.component('fs-content',{
  *  that will be pass to the other components.
  *  
  */
-const vm = new Vue({
-    el: '#foursquare-integration',
-    components: {
-        'fs-sidebar': FSSidebar,
-		'fs-content': FSContent,
-		'fs-manual-search': FSManualSearch
-    },
-    data: {
-    	config: {
-    		latitude: 0,
-    		longitude: 0,
-    		accuracy: 0
-    	},
-    	
-    	geolocation_enabled: false
-    },
-    created(){
-		this.getCurrentPosition();
-	},
-    methods: {
-    	/**
-    	 * @name getCurrentPosition
-    	 * @description Get the current position of the user and set up config variable if user geolocation is enabled.
-    	 */
-    	getCurrentPosition() {
-			
-			let options = {
-					enableHighAccuracy: true,
-					timeout: 5000,
-					maximumAge: 0
-				};
-			return navigator.geolocation.getCurrentPosition( 
-				this.getCurrentPositionSuccess, 
-				this.getCurrentPositionError, options 
-			);
-		},
-		/**
-    	 * @name getCurrentPositionSuccess
-    	 * @description In case of geolocalization enabled.
-    	 */
-		getCurrentPositionSuccess(pos) {
-			var crd = pos.coords;
-			
-			this.config.latitude = crd.latitude;
-			this.config.longitude = crd.longitude;
-			this.config.accuracy = crd.accuracy;
+let foursquareDomElement = document.getElementById('foursquare-integration');
 
-			this.geolocation_enabled = true;
+if(foursquareDomElement)
+{
+	const vm = new Vue({
+		el: '#foursquare-integration',
+		components: {
+			'fs-sidebar': FSSidebar,
+			'fs-content': FSContent,
+			'fs-manual-search': FSManualSearch
 		},
-		/**
-    	 * @name getCurrentPositionError
-    	 * @description In case of geolocalization disabled.
-    	 */
-		getCurrentPositionError(err) {
+		data: {
+			config: {
+				latitude: 0,
+				longitude: 0,
+				accuracy: 0
+			},
 			
-			this.geolocation_enabled = false;
-			
-			console.log("Geolocalization disabled!");
+			geolocation_enabled: false
+		},
+		created(){
+			this.getCurrentPosition();
+		},
+		methods: {
+			/**
+			 * @name getCurrentPosition
+			 * @description Get the current position of the user and set up config variable if user geolocation is enabled.
+			 */
+			getCurrentPosition() {
+				
+				let options = {
+						enableHighAccuracy: true,
+						timeout: 5000,
+						maximumAge: 0
+					};
+				return navigator.geolocation.getCurrentPosition( 
+					this.getCurrentPositionSuccess, 
+					this.getCurrentPositionError, options 
+				);
+			},
+			/**
+			 * @name getCurrentPositionSuccess
+			 * @description In case of geolocalization enabled.
+			 */
+			getCurrentPositionSuccess(pos) {
+				var crd = pos.coords;
+				
+				this.config.latitude = crd.latitude;
+				this.config.longitude = crd.longitude;
+				this.config.accuracy = crd.accuracy;
+
+				this.geolocation_enabled = true;
+			},
+			/**
+			 * @name getCurrentPositionError
+			 * @description In case of geolocalization disabled.
+			 */
+			getCurrentPositionError(err) {
+				
+				this.geolocation_enabled = false;
+				
+				console.log("Geolocalization disabled!");
+			}
 		}
-    }
-});
+	});
+}
