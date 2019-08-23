@@ -1,5 +1,3 @@
-<h1><?php _e( FOURSQUARE_INTEGRATION_NAME, FOURSQUARE_INTEGRATION_L10N); ?></h1>
-
 <div id="foursquare-integration" class="container-fluid">
 	<div class="wrapper">
 		<div v-if="!geolocation_enabled">
