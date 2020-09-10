@@ -14,11 +14,11 @@
 		</div>
 		<div v-else>
 			<div class="row">
-            	<div class="col-xs-12 col-md-4">
-            		<fs-sidebar :config="config" :geolocation_enabled="geolocation_enabled"></fs-sidebar>
-            	</div>
-            	<div class="col-xs-12 col-md-8">
+            	<div class="col-sm-9 col-sm-push-3">
             		<fs-content :config="config" :geolocation_enabled="geolocation_enabled"></fs-content>
+            	</div>
+            	<div class="col-sm-3 col-sm-pull-9">
+            		<fs-sidebar :config="config" :geolocation_enabled="geolocation_enabled"></fs-sidebar>
             	</div>
         	</div>
 		</div>

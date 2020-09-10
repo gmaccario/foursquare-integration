@@ -44,20 +44,46 @@ if(!class_exists('\FSI\Setup\Classes\FrontendManager'))
 		 */
 		public function frontendEnqueue() : void
 		{
+			global $post;
+
 			/*
 			 * Add additional frontend css/js
 			 */
-			$additional_js = $this->config['features']['frontend']['additional_js'];
-			$additional_css = $this->config['features']['frontend']['additional_css'];
-			
-			$this->enqueueAdditionalStaticFiles($additional_js, 'js');
-			$this->enqueueAdditionalStaticFiles($additional_css, 'css');
-			
-			/* 
-			 * Add basic static files 
-			 */
-			wp_enqueue_style( 'foursquare_integration-frontend-css', sprintf( '%s%s', FOURSQUARE_INTEGRATION_URL, '/assets/css/frontend.css' ), array(), FOURSQUARE_INTEGRATION_FRONTEND_CSS_VERSION );
-			wp_enqueue_script( 'foursquare_integration-frontend-js', sprintf( '%s%s', FOURSQUARE_INTEGRATION_URL, '/assets/js/frontend.js' ), array( 'jquery' ), FOURSQUARE_INTEGRATION_FRONTEND_JS_VERSION, true );
+			$shortcodes = $this->config['features']['frontend']['shortcodes'];
+
+			$include = false;
+			foreach($shortcodes as $shortcode)
+			{
+				$keys = \array_keys($shortcode);
+
+				foreach($keys as $key)
+				{
+					if(has_shortcode($post->post_content, $key))
+					{
+						$include = true;
+						
+						break 2;
+					}
+				}
+			}
+
+			if($include)
+			{
+				/*
+				* Add additional frontend css/js
+				*/
+				$additional_js = $this->config['features']['frontend']['additional_js'];
+				$additional_css = $this->config['features']['frontend']['additional_css'];
+				
+				$this->enqueueAdditionalStaticFiles($additional_js, 'js');
+				$this->enqueueAdditionalStaticFiles($additional_css, 'css');
+				
+				/* 
+				* Add basic static files 
+				*/
+				wp_enqueue_style( 'foursquare_integration-frontend-css', sprintf( '%s%s', FOURSQUARE_INTEGRATION_URL, '/assets/css/frontend.css' ), array(), FOURSQUARE_INTEGRATION_FRONTEND_CSS_VERSION );
+				wp_enqueue_script( 'foursquare_integration-frontend-js', sprintf( '%s%s', FOURSQUARE_INTEGRATION_URL, '/assets/js/frontend.js' ), array( 'jquery' ), FOURSQUARE_INTEGRATION_FRONTEND_JS_VERSION, true );
+			}
 		}
 		
 		/**

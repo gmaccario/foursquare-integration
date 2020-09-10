@@ -43,7 +43,10 @@ return [
 			],
 			'ajax'=> [ 'foursquare_results' ],
 			'routes'=> [],
-		    'additional_js' => [ 'https://unpkg.com/axios/dist/axios.min.js', 'https://cdn.jsdelivr.net/npm/vue/dist/vue.js' ],
+		    'additional_js' => [ 
+				'https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js', 
+				'https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js' 
+			],
 		    'additional_css' => []
 		]
 	],

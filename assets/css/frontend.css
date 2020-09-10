@@ -1,51 +1,101 @@
 /**
+
 * GENERAL
+
 */
+
 #foursquare-integration h2{padding:0.4em;}
+
 #foursquare-integration ul li{list-style-type: none;}
+
 #foursquare-integration .hide{display:none;}
 
+
+
 /**
+
 * MANUAL SEARCH FORM
+
 */
+
 form[name="manual-search"]{border: 1px solid #c0c0c0; padding: 1em; margin: 1em;}
+
 form[name="manual-search"] .alert{background-color: transparent;border:none;}
 
+
+
 /**
+
 * CURRENT LOCATION
+
 */
+
 #foursquare-integration .current-location{}
+
 #foursquare-integration .current-location .welcome span{}
+
 #foursquare-integration ul.current-location{margin-left: 50px;}
+
 #foursquare-integration ul.current-location li{clear:both;}
+
 #foursquare-integration ul.current-location .label{float:left;}
+
 #foursquare-integration ul.current-location .value{float:right;}
 
+
+
 /**
+
 * CATEGORIES
+
 */
-#foursquare-integration .categories{padding:1em;clear:both;}
+
+#foursquare-integration .categories{padding:1em;clear:both;position:relative;}
+
 #foursquare-integration .categories .row{padding:0.5em;}
+
 #foursquare-integration .categories .row a span.current{text-decoration: underline;}
+
 #foursquare-integration .categories .row .info::after{content: " | "}
+
 #foursquare-integration .categories .row img{background-color: #c0c0c0;}
 
-/**
-* VENUES NEAR YOU
-*/
-#foursquare-integration .venues-near-you .row{padding:1em;border: 1px solid #c0c0c0;margin-bottom: 1em;}
-#foursquare-integration .venues-near-you .row img{background-color: #c0c0c0;}
-#foursquare-integration .venues-near-you .row .alert{background-color: transparent; border: none;padding: .75rem 0;}
+
 
 /**
-* VENUE DETAILS
+
+* VENUES NEAR YOU
+
 */
+
+#foursquare-integration .venues-near-you .row{padding:1em;border: 1px solid #c0c0c0;margin-bottom: 1em;}
+
+#foursquare-integration .venues-near-you .row img{background-color: #c0c0c0;}
+
+#foursquare-integration .venues-near-you .row .alert{background-color: transparent; border: none;padding: .75rem 0;}
+
+
+
+/**
+
+* VENUE DETAILS
+
+*/
+
 #foursquare-integration .venue-details .details{padding:1em;border: 1px solid #c0c0c0;margin-bottom: 1em;}
+
 #foursquare-integration .venue-details .details .verified{color:#155724;}
+
 #foursquare-integration .venue-details .details .error{color: #856404;}
+
 #foursquare-integration .venue-details .details .contact a:hover{text-decoration: none;}
+
 #foursquare-integration .venue-details .details .contact a{}
+
 #foursquare-integration .venue-details .details .contact a .fa-phone{color: #000000;}
+
 #foursquare-integration .venue-details .details .contact a .fa-facebook{color: #4267B2;}
+
 #foursquare-integration .venue-details .details .contact a .fa-twitter{color: #1DA1F2;}
+
 #foursquare-integration .venue-details .details .alert{background-color: transparent; border: none;padding: .75rem 0;}
