@@ -5,11 +5,8 @@
  *
  * @author G.Maccario <g_maccario@hotmail.com>
  */
-
 namespace FSI\Setup\Classes;
-
 use FSI\Controller\Classes\Controller;
-
 if(!interface_exists('FSI\Setup\Classes\iFrontendManager'))
 {
     interface iFrontendManager
@@ -18,7 +15,6 @@ if(!interface_exists('FSI\Setup\Classes\iFrontendManager'))
         public function setAjaxurl() : void;
     }
 }
-
 if(!class_exists('\FSI\Setup\Classes\FrontendManager'))
 {
     class FrontendManager extends Manager
@@ -45,17 +41,14 @@ if(!class_exists('\FSI\Setup\Classes\FrontendManager'))
 		public function frontendEnqueue() : void
 		{
 			global $post;
-
 			/*
 			 * Add additional frontend css/js
 			 */
 			$shortcodes = $this->config['features']['frontend']['shortcodes'];
-
 			$include = false;
 			foreach($shortcodes as $shortcode)
 			{
 				$keys = \array_keys($shortcode);
-
 				foreach($keys as $key)
 				{
 					if(has_shortcode($post->post_content, $key))
@@ -66,7 +59,6 @@ if(!class_exists('\FSI\Setup\Classes\FrontendManager'))
 					}
 				}
 			}
-
 			if($include)
 			{
 				/*

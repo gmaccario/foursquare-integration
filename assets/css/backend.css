@@ -1,14 +1,14 @@
-.foursquare_integration table {
-	border-collapse: collapse;
-	width: 100%;
-}
-
-.foursquare_integration td, th {
-	border: 1px solid #dddddd;
-	text-align: left;
-	padding: 8px;
-}
-
-.foursquare_integration tr:nth-child(even) {
-	background-color: #dddddd;
+.foursquare_integration table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.foursquare_integration td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+.foursquare_integration tr:nth-child(even) {
+	background-color: #dddddd;
 }

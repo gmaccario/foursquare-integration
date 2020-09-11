@@ -5,11 +5,8 @@
  *
  * @author G.Maccario <g_maccario@hotmail.com>
  */
-
 namespace FSI\Setup\Classes;
-
 use FSI\Controller\Classes\Controller;
-
 if(!interface_exists('FSI\Setup\Classes\iBackendManager'))
 {
     interface iBackendManager
@@ -21,7 +18,6 @@ if(!interface_exists('FSI\Setup\Classes\iBackendManager'))
         public function whenFoursquareIntegrationStart() : void;
     }
 }
-
 if( !class_exists('\FSI\Setup\Classes\BackendManager'))
 {
     class BackendManager extends Manager
@@ -118,7 +114,6 @@ if( !class_exists('\FSI\Setup\Classes\BackendManager'))
 		    if( $pages ) 
 			{
 				$main_page = null;
-
 				foreach( $pages as $k => $page )
 				{
 					if( 0 === $k )
@@ -135,7 +130,6 @@ if( !class_exists('\FSI\Setup\Classes\BackendManager'))
 								'dashicons-admin-site'
 						);
 					}
-
 					add_submenu_page(
 						$main_page,
 						__( $page[ 'name' ], FOURSQUARE_INTEGRATION_L10N ),

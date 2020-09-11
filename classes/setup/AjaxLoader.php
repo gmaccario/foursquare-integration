@@ -1,10 +1,7 @@
 <?php
-
 namespace FSI\Setup\Classes;
-
 use FSI\General\Classes\Basic;
 use FSI\Controller\Classes\Controller;
-
 if(!interface_exists('FSI\Setup\Classes\iAjaxLoader'))
 {
     interface iAjaxLoader
@@ -13,7 +10,6 @@ if(!interface_exists('FSI\Setup\Classes\iAjaxLoader'))
         public function registerAjaxCalls() : void;
     }
 }
-
 if( !class_exists('\FSI\Setup\Classes\AjaxLoader'))
 {
     /**
@@ -61,9 +57,7 @@ if( !class_exists('\FSI\Setup\Classes\AjaxLoader'))
 		{		    
 			/* 1. register AJAX API from the config */
 		    $array_config = $this->controller->getCommon()->getConfig();
-
 		    $sideFeatures = $array_config[ 'features' ];
-
 		    array_map(function ($side) {		        
 		        $this->registerAjaxSideCall($side['ajax']);
 		    }, $sideFeatures);

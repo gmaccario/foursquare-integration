@@ -1,3 +1,3 @@
-jQuery( document ).ready(function() {
-    //console.log( "wp skeleton backend ready!" );
+jQuery( document ).ready(function() {
+    //console.log( "wp skeleton backend ready!" );
 });

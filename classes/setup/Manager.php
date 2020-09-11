@@ -1,10 +1,7 @@
 <?php
-
 namespace FSI\Setup\Classes;
-
 use FSI\General\Classes\Basic;
 use FSI\Controller\Classes\iController;
-
 if(!interface_exists('FSI\Setup\Classes\iManager'))
 {
     interface iManager
@@ -12,7 +9,6 @@ if(!interface_exists('FSI\Setup\Classes\iManager'))
         public function setConfig() : void;
     }
 }
-
 if(!class_exists('\FSI\Setup\Classes\Controller'))
 {
     /**

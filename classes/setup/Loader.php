@@ -1,9 +1,6 @@
 <?php
-
 namespace FSI\Setup\Classes;
-
 use FSI\Controller\Classes\Controller;
-
 if(!interface_exists('FSI\Setup\Classes\iLoader'))
 {
     interface iLoader
@@ -14,7 +11,6 @@ if(!interface_exists('FSI\Setup\Classes\iLoader'))
         /* Methods you declare in Interfaces ought to be public. */
     }
 }
-
 if(!class_exists('\FSI\Setup\Classes\Loader'))
 {
     /**
@@ -153,7 +149,6 @@ if(!class_exists('\FSI\Setup\Classes\Loader'))
 			$hooks 		= $config[ 'features' ][ $side ][ 'hooks' ];
 			$filters 	= $config[ 'features' ][ $side ][ 'filters' ];
 			$shortcodes = $config[ 'features' ][ $side ][ 'shortcodes' ];
-
 			if( count( $hooks ) > 0 ) 		$this->loadingHooks( $hooks[0] );
 			if( count( $filters ) > 0 ) 	$this->loadingFilters( $filters[0] );
 			if( count( $shortcodes ) > 0 ) 	$this->loadingShortcodes( $shortcodes[0] );
