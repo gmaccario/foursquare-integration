@@ -30,9 +30,7 @@ if(!class_exists('\General\Classes\Common'))
      * @return
      */
 	class Common implements iCommon
-	{
-		protected $debug = false;
-		
+	{		
 		private $config = null;
 		
 		/**
@@ -42,23 +40,8 @@ if(!class_exists('\General\Classes\Common'))
 		 * @return
 		 */
 		public function __construct()
-		{			
-		    $this->setDebug();
-		    $this->setConfig();
-		}
-		
-		/**
-		 * setDebug
-		 *
-		 * @author G.Maccario <g_maccario@hotmail.com>
-		 * @return
-		 */
-		protected function setDebug() : void
 		{
-		    if( empty($this->debug) && function_exists( 'get_option' ))
-		    {
-		        $this->debug = ( get_option( FOURSQUARE_INTEGRATION_OPT_DEBUG ) ) ? get_option( FOURSQUARE_INTEGRATION_OPT_DEBUG ) : false;
-		    }
+		    $this->setConfig();
 		}
 		
 		/**

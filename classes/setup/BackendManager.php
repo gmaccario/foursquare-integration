@@ -150,7 +150,6 @@ if( !class_exists('\FSI\Setup\Classes\BackendManager'))
 		 */
 		public function whenFoursquareIntegrationStart() : void
 		{
-			register_setting( FOURSQUARE_INTEGRATION_OPT_SETTINGS_FIELDS, FOURSQUARE_INTEGRATION_OPT_DEBUG );
 			register_setting( FOURSQUARE_INTEGRATION_OPT_SETTINGS_FIELDS, FOURSQUARE_INTEGRATION_OPT_SETTINGS_FIELDS );
 			
 			/*
