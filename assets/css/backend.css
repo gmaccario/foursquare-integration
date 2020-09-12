@@ -12,3 +12,10 @@
 .foursquare_integration tr:nth-child(even) {
 	background-color: #dddddd;
 }
+
+.foursquare_integration label {
+    display: block;
+    float: left;
+	clear: both;
+	width: 150px;
+}

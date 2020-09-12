@@ -3,15 +3,13 @@
 Plugin Name: Foursquare Integration
 Plugin URI: 
 Description: Foursquare Integration Plugin
-Version: 2.0
+Version: 1.0
 Author: Giuseppe Maccario
 Author URI: https://www.giuseppemaccario.com
 License: GPL2
 */
 
-define( 'FOURSQUARE_INTEGRATION_ENV', 'dev' );
-
-if( FOURSQUARE_INTEGRATION_ENV == 'dev' )
+if( defined( WP_DEBUG ) && WP_DEBUG )
 {
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
@@ -19,7 +17,7 @@ if( FOURSQUARE_INTEGRATION_ENV == 'dev' )
 }
 
 /* GENERAL CONSTANTS */
-define( 'FOURSQUARE_INTEGRATION_VERSION', '2.0' );
+define( 'FOURSQUARE_INTEGRATION_VERSION', '1.0' );
 define( 'FOURSQUARE_INTEGRATION_NAME', 'Foursquare Integration' );
 
 /* BASIC CONSTANTS - MANDATORY HERE CAUSE __FILE__ */

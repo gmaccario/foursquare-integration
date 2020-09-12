@@ -29,7 +29,7 @@
             	<?php foreach($available_shortcodes as $available_shortcode): ?>
             		<tr>
             			<?php foreach($available_shortcode as $shortcode => $method): ?>
-                        	<td><?php echo $shortcode;?></td>
+                        	<td>[<?php echo $shortcode;?>]</td>
                         	<td><?php echo $method;?></td>
                         <?php endforeach; ?>
                     </tr>
