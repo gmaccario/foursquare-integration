@@ -46,7 +46,6 @@ Get your Client ID and your Secret Key. This step is mandatory:
 == 1.0 ==
 * Include assets only when needed
 * Bug fix
-* Fixed files deletion
 * Minor changes
 * Compatible with PHP 7.0 (Linting)
 * General improvement
