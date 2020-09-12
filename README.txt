@@ -11,7 +11,7 @@ Foursquare Integration is a Wordpress Plugin that allows you to show a list of 3
 
 == Description ==
 Foursquare Integration is a Wordpress Plugin that allows you to show a list of 30 places close by the user's coordinates using Foursquare APIs.
-When the users block the coordinates sharing, the plugin will show a free-input form. In this case users can search for any location.
+When the users block the coordinates sharing (geolocation), the plugin will show a free-input form. In this case users can search for any location.
 
 == What is Foursquare? ==
 Foursquare is the most trusted, independent location data platform for understanding how people move through the real world.
@@ -21,15 +21,9 @@ Get your Client ID and your Secret Key. This step is mandatory:
 [https://developer.foursquare.com/docs/places-api/getting-started/](https://developer.foursquare.com/docs/places-api/getting-started/ "Foursquare API Key")
 
 == Features ==
-* Multiple markers
-* Marker info window (marker tooltips)
-* Coordinates: 3 center area controls
-* Zoom: world, landmass/continent, city, streets, buildings
-* Snazzy Maps Skins
-* Unlimited GEOJSON files upload in order to draw boundaries, shapes, add markers and tooltips on the map.
-* Responsive layout
-* Full screen map
-* Change event type on tooltip
+* Simple shortcode
+* List of nearest places when geolocation is on
+* Free-input form when geolocation is off
 * WordPress Backend Compliant
 
 == Installation ==
